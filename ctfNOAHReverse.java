@@ -47,11 +47,11 @@ public class ctfNOAHReverse{
     char[] chars = new char[6];
     
     // Loop through all possible combinations.
-    for (int a = 126; a <= 32; a--) {
-      for (int b = 126; b <= 32; b--) {
-        for (int c = 126; c <= 32; c--) {
-          for (int d = 126; d <= 32; d--) {
-            for (int e = 126; e <= 32; e--) {
+    for (int a = 126; a >= 32; a--) {
+      for (int b = 126; b >= 32; b--) {
+        for (int c = 126; c >= 32; c--) {
+          for (int d = 126; d >= 32; d--) {
+            for (int e = 126; e >= 32; e--) {
               for (int f = first; f >= last; f--) {
                 
                 // Calculate the hash.
