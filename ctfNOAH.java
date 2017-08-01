@@ -37,6 +37,8 @@ public class ctfNOAH{
     // Stores the bytes when found
     int[] bytes = new int[6];
     
+    int counter = 0;
+    
     // Loop through all possible combinations.
     for (int a = 32; a <= 126; a++) {
       for (int b = 32; b <= 126; b++) {
@@ -58,12 +60,13 @@ public class ctfNOAH{
                   bytes[5] = f;
                   
                   // This will print out the bytes of the flag.
-                  System.out.print("[");
+                  System.out.print(counter + ". [");
                   for(int i = 0; i < bytes.length; i++){
                     System.out.print(bytes[i] + " ");
                   }
                   System.out.println("]");
                   
+                  counter++;
                 }
               }
             }
