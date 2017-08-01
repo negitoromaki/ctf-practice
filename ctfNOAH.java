@@ -58,9 +58,11 @@ public class ctfNOAH{
                   bytes[5] = f;
                   
                   // This will print out the bytes of the flag.
+                  System.out.print("[");
                   for(int i = 0; i < bytes.length; i++){
-                    System.out.println(bytes[i]);
+                    System.out.print(bytes[i] + " ");
                   }
+                  System.out.println("]");
                   
                 }
               }
