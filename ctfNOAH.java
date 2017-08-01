@@ -1,9 +1,14 @@
+import java.io.PrintWriter;
+
+
 public class ctfNOAH{
+  private static int counter = 1;
   
   private static class CalculationThread1 extends Thread {
     public void run() {
       System.out.println("Creating thread1");
       calculate(32,56);
+      System.out.println("Ending thread1");
     }
   }
   
@@ -11,6 +16,7 @@ public class ctfNOAH{
     public void run() {
       System.out.println("Creating thread2");
       calculate(57,80);
+      System.out.println("Ending thread2");
     }
   }
   
@@ -18,6 +24,7 @@ public class ctfNOAH{
     public void run() {
       System.out.println("Creating thread3");
       calculate(81,104);
+      System.out.println("Ending thread3");
     }
   }
   
@@ -25,6 +32,7 @@ public class ctfNOAH{
     public void run() {
       System.out.println("Creating thread4");
       calculate(105,126);
+      System.out.println("Ending thread4");
     }
   }
   
@@ -36,8 +44,7 @@ public class ctfNOAH{
     int lowkey = 1472541258;
     // Stores the bytes when found
     int[] bytes = new int[6];
-    
-    int counter = 0;
+    char[] chars = new char[6];
     
     // Loop through all possible combinations.
     for (int a = 32; a <= 126; a++) {
@@ -48,10 +55,13 @@ public class ctfNOAH{
               for (int f = first; f <= last; f++) {
                 
                 // Calculate the hash.
-                double test = a*Math.pow(31, 5) + b * Math.pow(31,4) + c * Math.pow(31, 3) + d * Math.pow(31, 2) + e * Math.pow(31, 1) + f;
+                int test = (int) (a*Math.pow(31, 5) + b * Math.pow(31,4) + c * Math.pow(31, 3) + d * Math.pow(31, 2) + e * Math.pow(31, 1) + f);
+                
+                String characters = "" + chars[0] + chars[1] + chars[2] + chars[3] + chars[4] + chars[5];
+                int hash = characters.toLowerCase().hashCode();
                 
                 // Check if the hashes equate one another.
-                if(test == key || test == lowkey){
+                if(test == key && hash == lowkey){
                   bytes[0] = a;
                   bytes[1] = b;
                   bytes[2] = c;
@@ -59,15 +69,27 @@ public class ctfNOAH{
                   bytes[4] = e;
                   bytes[5] = f;
                   
-                  // This will print out the bytes of the flag.
-                  System.out.print(counter + ". [");
-                  for(int i = 0; i < bytes.length; i++){
-                    System.out.print(bytes[i] + " ");
-                  }
-                  System.out.println("]");
+                  chars[0] = (char) a;
+                  chars[1] = (char) b;
+                  chars[2] = (char) c;
+                  chars[3] = (char) d;
+                  chars[4] = (char) e;
+                  chars[5] = (char) f;
                   
-                  counter++;
+                  // This will print out the bytes of the flag.
+                  System.out.println(counter + ". [" + chars[0] + "  " + chars[1] + "  " + chars[2] + "  " + chars[3] + "  " + chars[4] + "  " + chars[5] + "]");
+                  
+                  try {
+                    PrintWriter out = new PrintWriter( "filename.txt" );
+                    out.println( "[" + chars[0] + "  " + chars[1] + "  " + chars[2] + "  " + chars[3] + "  " + chars[4] + "  " + chars[5] + "]" );
+                    out.close();
+                  } catch(Exception ex) {
+                  }
+                  
+                  //counter++;
                 }
+                
+                counter++;
               }
             }
           }
