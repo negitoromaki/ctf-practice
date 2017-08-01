@@ -1,11 +1,6 @@
 public class ctfNOAH{
-	class thread1 implements Runnable{
-		thread1(){
-			System.out.println("Creating thread1");
-		}
-
-		public void run(){
-			int key = 1471587914;
+	public static void main(String[] args){
+		int key = 1471587914;
 			int lowkey = 1472541258;
 			int[] bytes = new int[6];
 			for (int a = 32; a <= 126; a++) {
@@ -32,9 +27,5 @@ public class ctfNOAH{
 			for(int i = 0; i < bytes.length; i++){
 				System.out.println(bytes[i]);
 			}
-		}
-	}
-	public static void main(String[] args){
-		
 	}
 }
