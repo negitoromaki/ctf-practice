@@ -102,16 +102,16 @@ public class ctfNOAHReverse{
   public static void run() {
     Thread calculate1, calculate2, calculate3, calculate4;
     // run thread
-    calculate1 = new Thread(new ctfNOAHReverse.CalculationThread1());
+    calculate1 = new Thread(new ctfNOAH.CalculationThread1());
     calculate1.start();
     
-    calculate2 = new Thread(new ctfNOAHReverse.CalculationThread2());
+    calculate2 = new Thread(new ctfNOAH.CalculationThread2());
     calculate2.start();
     
-    calculate3 = new Thread(new ctfNOAHReverse.CalculationThread3());
+    calculate3 = new Thread(new ctfNOAH.CalculationThread3());
     calculate3.start();
     
-    calculate4 = new Thread(new ctfNOAHReverse.CalculationThread4());
+    calculate4 = new Thread(new ctfNOAH.CalculationThread4());
     calculate4.start();
     
   }
