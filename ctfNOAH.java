@@ -6,22 +6,20 @@ public class ctfNOAH{
 	static int lowkey = 1472541258;
 	static int res = 0;
 	static ArrayList<Integer> list = new ArrayList<Integer>();
+
 	public static void main(String[] args){
-		int res=0;
 		try{
 			rescursiveFind(key, 5);
 		}catch(StackOverflowError e){
 			e.printStackTrace();
 		}
 
-		for(int i = 0; i < list.size(); i++){
-			System.out.println(list.get(i));
-		}
+		
 	}
 
 	private static void rescursiveFind(int rem_val, int counter){
 		if(rem_val >= 32 && rem_val <= 126){ 
-			System.out.println(rem_val);
+			System.out.println("done");
 		}else{
 			if(counter > 0){
 				for(int i = 32; i <= 126; i++){
@@ -34,9 +32,22 @@ public class ctfNOAH{
 					}
 				}
 			}else{
-				list.clear();
+				if(list.size() > 1){
+					printList(list);
+					list.clear();
+					System.out.println("Failed");
+				}
 			}
 		}
+	}
+
+	private static void printList(ArrayList<Integer> l){
+		String str = "";
+		for(int i = 0; i < l.size(); i++){
+			str += Integer.toString(l.get(i));
+			str+= " ";
+		}
+		System.out.println(str);
 	}
 	
 }
