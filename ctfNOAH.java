@@ -1,14 +1,16 @@
-import Java.util.ArrayLists;
+import java.util.ArrayList;
+import java.lang.StackOverflowError;
+
 public class ctfNOAH{
-	int key = 1471587914;
-	int lowkey = 1472541258;
-	int res = 0;
+	static int key = 1471587914;
+	static int lowkey = 1472541258;
+	static int res = 0;
+	static ArrayList<Integer> list = new ArrayList<Integer>();
 	public static void main(String[] args){
 		int res=0;
-		ArrayList<int> list = new ArrayList<int>();
 		try{
 			rescursiveFind(key, 5);
-		}catch(StackOverFlowError e){
+		}catch(StackOverflowError e){
 			e.printStackTrace();
 		}
 
@@ -17,7 +19,7 @@ public class ctfNOAH{
 		}
 	}
 
-	private void rescursiveFind(int rem_val, int counter){
+	private static void rescursiveFind(int rem_val, int counter){
 		if(rem_val >= 32 && rem_val <= 126){ 
 			System.out.println(rem_val);
 		}else{
