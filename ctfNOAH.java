@@ -14,7 +14,9 @@ public class ctfNOAH{
 			e.printStackTrace();
 		}
 
-		
+		if(list.size() == 0){
+			System.out.println("NONE FOUND");
+		}
 	}
 
 	private static void rescursiveFind(int rem_val, int counter){
@@ -33,9 +35,9 @@ public class ctfNOAH{
 				}
 			}else{
 				if(list.size() > 1){
-					printList(list);
+					//printList(list);
 					list.clear();
-					System.out.println("Failed");
+					//System.out.println("Failed");
 				}
 			}
 		}
