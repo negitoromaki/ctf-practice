@@ -84,6 +84,7 @@ public class ctfNOAH{
                     out.println( "[" + chars[0] + "  " + chars[1] + "  " + chars[2] + "  " + chars[3] + "  " + chars[4] + "  " + chars[5] + "]" );
                     out.close();
                   } catch(Exception ex) {
+                    
                   }
                   
                   //counter++;
